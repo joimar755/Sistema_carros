@@ -5,12 +5,14 @@ import { Auth_Provider } from "./componentes/context/Auth_Provider";
 import { PublicLayout } from "./componentes/public/PublicLayout";
 import { PrivateLayout } from "./componentes/private/PrivateLayout";
 import { Routing } from "./componentes/Routing";
-
+import { ThemeProvider } from "@material-tailwind/react";
 
 const App = () => {
   return (
     <div>
-      <Routing />
+      <ThemeProvider>
+        <Routing />
+      </ThemeProvider>
     </div>
   );
 };
