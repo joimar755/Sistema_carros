@@ -2,9 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 import React from "react";
-import  CardOne  from "../CardOne";
+import CardOne from "../CardOne";
+import TextLinkExample from "../TextLinkExample";
 
-export const Lista = () => {
+export const Lista = ({ onCarCountUpdate, onCarAdd }) => {
   const [Car, setCar] = useState([]);
 
   const car = async () => {
@@ -18,20 +19,27 @@ export const Lista = () => {
   useEffect(() => {
     car();
   }, []);
-  console.log(Car);
+  //console.log(Car);
 
+  const handleAddClick = (car) => {
+    const newCar = {
+      id: car.id,
+      nombre: car.name_product,
+      marca: car.modelo,
+      precio: car.price,
+      category: car.category,
+    };
+
+    onCarAdd(newCar);
+  };
 
   return (
     <>
-      {Car.map((carItem) => ( 
-          <CardOne key={carItem.id} car={carItem} /> 
-        ))}
+      {Car.map((carItem) => (
+        <CardOne car={carItem} onAddClick={handleAddClick} />
+      ))}
     </>
-  )
-
+  );
 };
-
-
-
 
 export default Lista;

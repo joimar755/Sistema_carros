@@ -26,7 +26,7 @@ function CheckIcon() {
   );
 }
 
-export const CardOne = ({car}) => {
+export const CardOne = ({car,onAddClick}) => {
 
   return (
     <div className="">
@@ -105,6 +105,7 @@ export const CardOne = ({car}) => {
               className="hover:scale-[1.02] focus:scale-[1.02] active:scale-100"
               ripple={false}
               fullWidth={true}
+              onClick={() => onAddClick(car)}
             >
               Buy Now
             </Button>
