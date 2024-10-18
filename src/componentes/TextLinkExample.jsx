@@ -24,7 +24,9 @@ function classNames(...classes) {
 import React from "react";
 import Example from "./Example";
 
-const TextLinkExample = ({ CarCount, CarAdd = []}) => {
+const TextLinkExample = ({AddCar,total,CarCount,onAddClick, CarAdd = []}) => {
+  
+
   return (
     <>
      <Disclosure as="nav" className="bg-gray-900  w-full h-auto  text-white">
@@ -84,13 +86,12 @@ const TextLinkExample = ({ CarCount, CarAdd = []}) => {
               {CarCount > 0 && (
                 <div className="flex items-center justify-center rounded-full bg-red-500 text-white text-xs px-2 py-1">
                   {CarCount}
-                </div>
-                                    
-
-                    
+                </div>                                  
               )}
+
             </button>
-            <Example /> 
+            <Example CarAdd={CarAdd} onAddClick={onAddClick} total={total} />
+
             {/* <div className="absolute right-0 mt-20 w-50 rounded-md bg-black shadow-lg z-10">
               <div className="py-2">
                 <h2 className="text-lg font-bold px-40">Carrito de Compras</h2>
@@ -108,11 +109,12 @@ const TextLinkExample = ({ CarCount, CarAdd = []}) => {
                 ) : (
                   <p className="text-center px-4 py-2">
                     No hay productos en el carrito
+                    
                   </p>
                 )}
               </div>
             </div> */}
-
+ 
             {/* Profile dropdown */}
             <Menu as="div" className="relative ml-3">
               <div>

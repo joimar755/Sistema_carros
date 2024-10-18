@@ -93,7 +93,7 @@ export const CardOne = ({car,onAddClick}) => {
                   <CheckIcon />
                 </span>
                 <Typography className="font-normal">
-                  Life time technical support
+                  {car.id}
                 </Typography>
               </li>
             </ul>
