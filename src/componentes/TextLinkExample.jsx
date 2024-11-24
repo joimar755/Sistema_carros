@@ -10,9 +10,10 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
+
 const navigation = [
   { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
+  { name: "Registrar", to: "/carro", current: false },
   { name: "Projects", href: "#", current: false },
   { name: "Calendar", href: "#", current: false },
 ];
@@ -60,7 +61,7 @@ const TextLinkExample = ({AddCar,total,CarCount,onAddClick, CarAdd = []}) => {
                 {navigation.map((item) => (
                   <a
                     key={item.name}
-                    href={item.href}
+                    href={item.to}
                     aria-current={item.current ? "page" : undefined}
                     className={classNames(
                       item.current
