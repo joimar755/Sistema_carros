@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [username, setUsers] = useState("");
   const [password, setPassword] = useState("");
+  const [phone_number, setphone_number] = useState("");
+
   const [signIn, toggle] = React.useState(true);
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
@@ -24,6 +26,8 @@ const Login = () => {
         const res = await Resister_users({
           username,
           password,
+          phone_number
+
         });
         console.log(res);
       } catch (error) {
@@ -82,6 +86,11 @@ const Login = () => {
             type="password"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
+          />
+           <Components.Input
+            type="number"
+            placeholder="Password"
+            onChange={(e) => setphone_number(e.target.value)}
           />
           <Components.Button>Sign Up</Components.Button>
         </Components.Form>

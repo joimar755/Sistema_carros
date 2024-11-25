@@ -1,8 +1,11 @@
 
 import axios  from "axios";
 
-const API = 'http://127.0.0.1:8000/usuario'
-const API_LOGIN = 'http://127.0.0.1:8000/usuario/login'
+const URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000/";
+
+
+const API = `${URL}/usuario`
+const API_LOGIN = `${URL}/usuario/login`
 
 export const Resister_users = query => axios.post(`${API}`, query) 
 
@@ -17,5 +20,3 @@ export const Logins = (data) => {
         }
     });
 }
-
-

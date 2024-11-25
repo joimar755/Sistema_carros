@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Pro } from "../api/Producto";
 import useAuth from "./hooks/useAuth";
+const URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000/"; 
+
 
 export const Register = () => {
   const [category, setCategory] = useState([]);
   const [category1, setCategory1] = useState([]);
   const [category2, setCategory2] = useState([]);
+
 
   const [form, setForm] = useState({
     name: "",
@@ -21,7 +24,7 @@ export const Register = () => {
   const categoria = async () => {
     try {
       const url = await axios.get(
-        "http://127.0.0.1:8000/products/status/category"
+        `${URL}/products/status/category`
       );
       const resultado = url;
       setCategory(resultado.data.resultado);
@@ -30,7 +33,7 @@ export const Register = () => {
   const categoria1 = async () => {
     try {
       const url = await axios.get(
-        "http://127.0.0.1:8000/products/status/model"
+        `${URL}/products/status/model`
       );
       const resultado = url;
       setCategory1(resultado.data.resultado);
@@ -39,7 +42,7 @@ export const Register = () => {
   const categoria2 = async () => {
     try {
       const url = await axios.get(
-        "http://127.0.0.1:8000/products/status"
+        `${URL}/products/status`
       );
       const resultado = url;
       setCategory2(resultado.data.resultado);

@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const API = "http://127.0.0.1:8000/products";
+const URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000/"; 
+
+
+const API = `${URL}/products`;    
 
 const Venta = "http://127.0.0.1:8000/api/payu/payment";
 
