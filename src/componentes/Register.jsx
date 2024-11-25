@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Pro } from "../api/Producto";
 import useAuth from "./hooks/useAuth";
+import TextLinkExample from "./TextLinkExample";
 const URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000/"; 
 
 
-export const Register = () => {
+ const Register = () => {
+  const { auth } = useAuth();
   const [category, setCategory] = useState([]);
   const [category1, setCategory1] = useState([]);
   const [category2, setCategory2] = useState([]);
@@ -103,6 +105,8 @@ export const Register = () => {
  
   return (
     <>
+      <TextLinkExample />
+      <h1 className="text-3xl font-bold ">hola {auth.username}</h1>
       <div className="max-w-sm p-6 bg-black border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-100 dark:text-white">
           Crear Producto
@@ -280,3 +284,4 @@ export const Register = () => {
     </>
   );
 };
+export default Register;

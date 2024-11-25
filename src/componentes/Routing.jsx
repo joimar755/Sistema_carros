@@ -5,8 +5,8 @@ import Login from "./Login";
 import { PrivateLayout } from "./private/PrivateLayout";
 import { Auth_Provider } from "./context/Auth_Provider";
 import Home from "./Home";
-import { Register } from "./Register";
 import TextLinkExample from "./TextLinkExample";
+import Register from "./Register";
 
 export const Routing = () => {
   return (
@@ -23,12 +23,12 @@ export const Routing = () => {
               <Route path="principal" element={<Home />} />
             </Route>
           </Routes>
+          <Routes>
+               <Route path="/carro" element={<Register />} />
+               
+          </Routes>
         </div>
       </Auth_Provider>
-      <TextLinkExample />
-      <Routes>
-        <Route path="/carro" element={<Register />} />
-      </Routes>
     </Router>
   );
 };
