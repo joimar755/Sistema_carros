@@ -2,6 +2,7 @@ import axios, { Axios } from "axios";
 import React, { createContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
+const URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000/"; 
 
 export const Auth_Provider = ({ children }) => {
   const [auth, setAuth] = useState({});
@@ -20,7 +21,7 @@ export const Auth_Provider = ({ children }) => {
      //console.log(userID)
           
         
-        axios.get(`http://127.0.0.1:8000/profile/${userID}`,{ 
+        axios.get(`${URL}/profile/${userID}`,{ 
              headers:  {
                "Content-Type": "application/json",
                "Authorization": `Bearer ${token}`
