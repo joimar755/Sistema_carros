@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+const URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000/"; 
+
 import React from "react";
 import CardOne from "../CardOne";
 import TextLinkExample from "../TextLinkExample";
@@ -10,7 +12,7 @@ export const Lista = ({ onCarCountUpdate, onCarAdd }) => {
 
   const car = async () => {
     try {
-      const url = await axios.get("http://127.0.0.1:8000/relacion");
+      const url = await axios.get(`${URL}/relacion`);
       const resultado = url;
       setCar(resultado.data);
     } catch (error) {}
